@@ -39,6 +39,7 @@ const App = () => {
 
   return (
     <>
+      <div className="app_title">Task Trek</div>
       <div className="app">
         <TaskForm setTasks={setTasks} />
         <main className="app_main">

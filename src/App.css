@@ -1,6 +1,9 @@
 .app {
   display: grid;
   grid-template-rows: 150px auto;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease;
 }
 
 .app_title {
@@ -8,16 +11,35 @@
   font-weight: 600;
   text-align: center;
   margin-top: 20px;
-  color: #333;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .app_main {
   display: flex;
   justify-content: space-evenly;
   padding: 20px 8%;
+  gap: 20px;
 }
 
 .task_column {
-  width: 33.33%;
-  margin: 20px
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .app_main {
+    flex-direction: column;
+    padding: 20px 4%;
+  }
+  
+  .app_title {
+    font-size: 28px;
+  }
+  
+  .task_column {
+    min-width: unset;
+    margin-bottom: 20px;
+  }
 }

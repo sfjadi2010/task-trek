@@ -1,10 +1,24 @@
 .task_column_title {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;    
+    margin-bottom: 15px;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 
 .task_column_title > .task_column_icon {
     width: 30px;    
     margin-right: 5px;
+}
+
+.task_count {
+    margin-left: auto;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    background-color: var(--bg-tertiary);
+    padding: 2px 8px;
+    border-radius: 10px;
+    border: 1px solid var(--border-secondary);
+    transition: all 0.3s ease;
 }

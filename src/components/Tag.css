@@ -1,10 +1,26 @@
 .tag {
     font-size: 14px;
     font-weight: 500;
-    background-color: #f9f9f9;
-    border: 1px solid #dfe3e6;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-secondary);
     border-radius: 5px;
     padding: 2px 10px;
     margin-right: 10px;
     cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-primary-tag);
+}
+
+.tag:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px var(--shadow-light);
+}
+
+.tag:active {
+    transform: translateY(0);
+}
+
+/* Dark theme specific adjustments for better contrast */
+body.dark-theme .tag {
+    border-color: var(--border-primary);
 }

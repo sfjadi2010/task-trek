@@ -1,5 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* CSS Variables for Light Theme */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #f9f9f9;
+  --text-primary: #333333;
+  --text-primary-tag: #333333;
+  --text-secondary: #666666;
+  --text-tertiary: #999999;
+  --border-primary: #dcdcdc;
+  --border-secondary: #dfe3e6;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+  --accent-primary: #6457f9;
+  --accent-hover: #5a4ae3;
+  --danger-bg: #ffebee;
+  --danger-text: #d32f2f;
+  --success-bg: #e8f5e8;
+  --success-text: #2e7d32;
+  --warning-bg: #fff3e0;
+  --warning-text: #f57c00;
+}
+
+/* CSS Variables for Dark Theme */
+body.dark-theme {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-tertiary: #3a3a3a;
+  --text-primary: #ffffff;
+  --text-primary-tag: #333333;
+  --text-secondary: #b0b0b0;
+  --text-tertiary: #888888;
+  --border-primary: #404040;
+  --border-secondary: #505050;
+  --shadow-light: rgba(0, 0, 0, 0.3);
+  --shadow-medium: rgba(0, 0, 0, 0.4);
+  --accent-primary: #7c6aff;
+  --accent-hover: #8a7bff;
+  --danger-bg: #3a1a1a;
+  --danger-text: #ff6b6b;
+  --success-bg: #1a3a1a;
+  --success-text: #66bb6a;
+  --warning-bg: #3a2a1a;
+  --warning-text: #ffb74d;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -7,5 +53,8 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;  
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

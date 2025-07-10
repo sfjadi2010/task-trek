@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import TaskForm from "./components/TaskForm";
 import TaskColumn from "./components/TaskColumn";
+import ThemeToggle from "./components/ThemeToggle";
 import Todo from "./assets/direct-hit.png";
 import Doing from "./assets/glowing-star.png";
 import Done from "./assets/check-mark-button.png";
@@ -35,10 +36,11 @@ const App = () => {
 
     setTasks(updatedTasks);
     setActiveCard(null);
-  }
+  };
 
   return (
     <>
+      <ThemeToggle />
       <div className="app_title">Task Trek</div>
       <div className="app">
         <TaskForm setTasks={setTasks} />
@@ -75,6 +77,5 @@ const App = () => {
     </>
   );
 };
-
 
 export default App;

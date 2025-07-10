@@ -12,12 +12,15 @@ const TaskColumn = ({
   setActiveCard,
   onDrop,
 }) => {
+  const taskCount = tasks.filter((task) => task.status === status).length;
+
   return (
     <>
       <section className="task_column">
         <h2 className="task_column_title">
           <img src={image} alt={title} className="task_column_icon" />
           {title}
+          <span className="task_count">({taskCount})</span>
         </h2>
 
         <DropArea onDrop={() => onDrop(status, 0)} />

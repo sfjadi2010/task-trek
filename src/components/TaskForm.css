@@ -2,7 +2,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid #dcdcdc;
+    border-bottom: 1px solid var(--border-primary);
+    background-color: var(--bg-primary);
+    transition: all 0.3s ease;
 }
 
 .app_header > form {
@@ -12,17 +14,24 @@
 .task_input {
     font-size: 20px;
     font-weight: 500;
-    background: #f9f9f9;
-    color: #000;
-    border: 1px solid #dfe3e6;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-secondary);
     border-radius: 5px;
     padding: 8px 12px;
     margin-bottom: 15px;
     width: 100%;
+    transition: all 0.3s ease;
+}
+
+.task_input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px rgba(100, 87, 249, 0.2);
 }
 
 .task_input::placeholder {
-    color: #686868;
+    color: var(--text-tertiary);
 }
 
 .task_form_bottom_line {
@@ -31,21 +40,29 @@
     justify-content: space-between;
 }
 
-
 .task_status {
     font-size: 16px;
     font-weight: 500;
-    border: 1px solid #999;
+    border: 1px solid var(--border-primary);
     border-radius: 5px;
     width: 120px;
     height: 40px;
     padding: 0 5px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.task_status:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px rgba(100, 87, 249, 0.2);
 }
 
 .task_submit {
     font-size: 16px;
     font-weight: 500;
-    background-color: #6457f9;
+    background-color: var(--accent-primary);
     color: #fff;
     border-radius: 5px;
     height: 40px;
@@ -53,4 +70,14 @@
     padding: 3px 13px;
     border: none;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.task_submit:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+.task_submit:active {
+    transform: translateY(0);
 }

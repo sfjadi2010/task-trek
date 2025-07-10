@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./TaskForm.css";
 import Tag from "./Tag";
 
-const TaskForm = ({setTasks}) => {
+const TaskForm = ({ setTasks }) => {
   const [taskData, setTaskData] = useState({
     task: "",
     status: "todo",
@@ -36,15 +36,19 @@ const TaskForm = ({setTasks}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTasks((prevTasks) => [
-      ...prevTasks, taskData
-    ]);
+
+    // Add validation
+    if (!taskData.task.trim()) {
+      return; // Don't submit if task is empty
+    }
+
+    setTasks((prevTasks) => [...prevTasks, taskData]);
 
     // reset the form
     setTaskData({
-     task: "",
-     status: "todo",
-     tags: [],
+      task: "",
+      status: "todo",
+      tags: [],
     });
   };
 
@@ -63,10 +67,26 @@ const TaskForm = ({setTasks}) => {
 
           <div className="task_form_bottom_line">
             <div>
-              <Tag tagName="HTML" selectTag={selectTag} selected={checkTag("HTML")} />
-              <Tag tagName="CSS" selectTag={selectTag} selected={checkTag("CSS")} />
-              <Tag tagName="JavaScript" selectTag={selectTag} selected={checkTag("JavaScript")} />
-              <Tag tagName="ReactJS" selectTag={selectTag} selected={checkTag("ReactJS")} />
+              <Tag
+                tagName="HTML"
+                selectTag={selectTag}
+                selected={checkTag("HTML")}
+              />
+              <Tag
+                tagName="CSS"
+                selectTag={selectTag}
+                selected={checkTag("CSS")}
+              />
+              <Tag
+                tagName="JavaScript"
+                selectTag={selectTag}
+                selected={checkTag("JavaScript")}
+              />
+              <Tag
+                tagName="ReactJS"
+                selectTag={selectTag}
+                selected={checkTag("ReactJS")}
+              />
             </div>
 
             <div>
@@ -82,7 +102,7 @@ const TaskForm = ({setTasks}) => {
               </select>
 
               <button className="task_submit" type="submit">
-                + Add Task
+                + Add New Task
               </button>
             </div>
           </div>

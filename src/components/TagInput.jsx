@@ -9,7 +9,7 @@ const TagInput = ({ onTagsChange, selectedTags = [] }) => {
   };
 
   const handleInputKeyDown = (e) => {
-    if (e.key === 'Enter' || e.key === ',') {
+    if (e.key === "Enter" || e.key === ",") {
       e.preventDefault();
       processTags();
     }
@@ -26,9 +26,9 @@ const TagInput = ({ onTagsChange, selectedTags = [] }) => {
 
     // Parse comma-separated tags
     const newTags = inputValue
-      .split(',')
-      .map(tag => tag.trim())
-      .filter(tag => tag.length > 0 && !selectedTags.includes(tag));
+      .split(",")
+      .map((tag) => tag.trim())
+      .filter((tag) => tag.length > 0 && !selectedTags.includes(tag));
 
     if (newTags.length > 0) {
       onTagsChange([...selectedTags, ...newTags]);
@@ -38,7 +38,7 @@ const TagInput = ({ onTagsChange, selectedTags = [] }) => {
   };
 
   const removeTag = (tagToRemove) => {
-    onTagsChange(selectedTags.filter(tag => tag !== tagToRemove));
+    onTagsChange(selectedTags.filter((tag) => tag !== tagToRemove));
   };
 
   return (
@@ -63,13 +63,13 @@ const TagInput = ({ onTagsChange, selectedTags = [] }) => {
           onChange={handleInputChange}
           onKeyDown={handleInputKeyDown}
           onBlur={handleInputBlur}
-          placeholder={selectedTags.length === 0 ? "Add tags (comma separated)..." : ""}
+          placeholder={
+            selectedTags.length === 0 ? "Add tags (comma separated)..." : ""
+          }
           className="tag-text-input"
         />
       </div>
-      <div className="tag-input-hint">
-        Press Enter or comma to add tags
-      </div>
+      <div className="tag-input-hint">Press Enter or comma to add tags</div>
     </div>
   );
 };

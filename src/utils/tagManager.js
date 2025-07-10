@@ -3,13 +3,29 @@
 
 // Predefined color palette for better visual consistency
 const COLOR_PALETTE = [
-  '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7',
-  '#DDA0DD', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E9',
-  '#F8C471', '#82E0AA', '#F1948A', '#85929E', '#A569BD',
-  '#5DADE2', '#58D68D', '#F4D03F', '#EC7063', '#AF7AC5'
+  "#FF6B6B",
+  "#4ECDC4",
+  "#45B7D1",
+  "#96CEB4",
+  "#FFEAA7",
+  "#DDA0DD",
+  "#98D8C8",
+  "#F7DC6F",
+  "#BB8FCE",
+  "#85C1E9",
+  "#F8C471",
+  "#82E0AA",
+  "#F1948A",
+  "#85929E",
+  "#A569BD",
+  "#5DADE2",
+  "#58D68D",
+  "#F4D03F",
+  "#EC7063",
+  "#AF7AC5",
 ];
 
-const TAGS_STORAGE_KEY = 'task_tags';
+const TAGS_STORAGE_KEY = "task_tags";
 
 /**
  * Get a random color from the predefined palette
@@ -26,17 +42,17 @@ const getRandomColor = () => {
  */
 const getTextColor = (hexColor) => {
   // Remove # if present
-  const hex = hexColor.replace('#', '');
-  
+  const hex = hexColor.replace("#", "");
+
   // Convert to RGB
   const r = parseInt(hex.substr(0, 2), 16);
   const g = parseInt(hex.substr(2, 2), 16);
   const b = parseInt(hex.substr(4, 2), 16);
-  
+
   // Calculate luminance
   const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-  
-  return luminance > 0.5 ? '#333333' : '#FFFFFF';
+
+  return luminance > 0.5 ? "#333333" : "#FFFFFF";
 };
 
 /**
@@ -48,7 +64,7 @@ export const getTags = () => {
     const stored = localStorage.getItem(TAGS_STORAGE_KEY);
     return stored ? JSON.parse(stored) : {};
   } catch (error) {
-    console.error('Error reading tags from localStorage:', error);
+    console.error("Error reading tags from localStorage:", error);
     return {};
   }
 };
@@ -67,20 +83,20 @@ export const getTagNames = () => {
  * @returns {boolean} Success status
  */
 export const addTag = (tagName) => {
-  if (!tagName || typeof tagName !== 'string') {
-    console.error('Invalid tag name provided');
+  if (!tagName || typeof tagName !== "string") {
+    console.error("Invalid tag name provided");
     return false;
   }
 
   const trimmedTag = tagName.trim();
   if (!trimmedTag) {
-    console.error('Tag name cannot be empty');
+    console.error("Tag name cannot be empty");
     return false;
   }
 
   try {
     const tags = getTags();
-    
+
     // Don't add if tag already exists
     if (tags[trimmedTag]) {
       console.warn(`Tag "${trimmedTag}" already exists`);
@@ -91,13 +107,13 @@ export const addTag = (tagName) => {
     tags[trimmedTag] = {
       backgroundColor,
       textColor: getTextColor(backgroundColor),
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
     };
 
     localStorage.setItem(TAGS_STORAGE_KEY, JSON.stringify(tags));
     return true;
   } catch (error) {
-    console.error('Error adding tag to localStorage:', error);
+    console.error("Error adding tag to localStorage:", error);
     return false;
   }
 };
@@ -108,14 +124,14 @@ export const addTag = (tagName) => {
  * @returns {boolean} Success status
  */
 export const removeTag = (tagName) => {
-  if (!tagName || typeof tagName !== 'string') {
-    console.error('Invalid tag name provided');
+  if (!tagName || typeof tagName !== "string") {
+    console.error("Invalid tag name provided");
     return false;
   }
 
   try {
     const tags = getTags();
-    
+
     if (!tags[tagName]) {
       console.warn(`Tag "${tagName}" does not exist`);
       return false;
@@ -125,7 +141,7 @@ export const removeTag = (tagName) => {
     localStorage.setItem(TAGS_STORAGE_KEY, JSON.stringify(tags));
     return true;
   } catch (error) {
-    console.error('Error removing tag from localStorage:', error);
+    console.error("Error removing tag from localStorage:", error);
     return false;
   }
 };
@@ -146,17 +162,17 @@ export const getTagColor = (tagName) => {
  * @returns {string[]} Array of parsed tag names
  */
 export const parseAndAddTags = (tagString) => {
-  if (!tagString || typeof tagString !== 'string') {
+  if (!tagString || typeof tagString !== "string") {
     return [];
   }
 
   const tagNames = tagString
-    .split(',')
-    .map(tag => tag.trim())
-    .filter(tag => tag.length > 0);
+    .split(",")
+    .map((tag) => tag.trim())
+    .filter((tag) => tag.length > 0);
 
   // Add new tags to storage
-  tagNames.forEach(tagName => {
+  tagNames.forEach((tagName) => {
     const tags = getTags();
     if (!tags[tagName]) {
       addTag(tagName);
@@ -171,9 +187,9 @@ export const parseAndAddTags = (tagString) => {
  */
 export const initializeDefaultTags = () => {
   const tags = getTags();
-  
+
   if (Object.keys(tags).length === 0) {
-    const defaultTags = ['HTML', 'CSS', 'JavaScript', 'ReactJS'];
-    defaultTags.forEach(tag => addTag(tag));
+    const defaultTags = ["HTML", "CSS", "JavaScript", "ReactJS"];
+    defaultTags.forEach((tag) => addTag(tag));
   }
 };

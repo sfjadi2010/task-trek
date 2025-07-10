@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./TagManager.css";
 import Tag from "./Tag";
-import { getTags, getTagNames, initializeDefaultTags } from "../utils/tagManager";
+import {
+  getTags,
+  getTagNames,
+  initializeDefaultTags,
+} from "../utils/tagManager";
 
 const TagManager = ({ selectedTags = [], onTagSelect }) => {
   const [availableTags, setAvailableTags] = useState([]);
@@ -9,7 +13,7 @@ const TagManager = ({ selectedTags = [], onTagSelect }) => {
   useEffect(() => {
     // Initialize default tags if none exist
     initializeDefaultTags();
-    
+
     // Load tags from localStorage
     setAvailableTags(getTagNames());
   }, []);

@@ -24,19 +24,15 @@ const TaskCard = ({
           <div className="task_card_tags">
             {tags.map((tag, index) => {
               const tagColor = getTagColor(tag);
-              const tagStyle = tagColor 
+              const tagStyle = tagColor
                 ? {
                     backgroundColor: tagColor.backgroundColor,
                     color: tagColor.textColor,
                   }
                 : {};
-              
+
               return (
-                <span
-                  key={index}
-                  className="task-tag"
-                  style={tagStyle}
-                >
+                <span key={index} className="task-tag" style={tagStyle}>
                   {tag}
                 </span>
               );

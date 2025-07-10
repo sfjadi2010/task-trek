@@ -12,8 +12,8 @@ const InlineTaskForm = ({ onAddTask, onCancel }) => {
 
   const handleTagsChange = (newTags) => {
     // Parse and add any new tags to localStorage
-    const allParsedTags = newTags.flatMap(tag => parseAndAddTags(tag));
-    
+    const allParsedTags = newTags.flatMap((tag) => parseAndAddTags(tag));
+
     setTaskData((prevData) => ({
       ...prevData,
       tags: allParsedTags,
@@ -94,7 +94,7 @@ const InlineTaskForm = ({ onAddTask, onCancel }) => {
             onTagsChange={handleTagsChange}
             selectedTags={taskData.tags}
           />
-          
+
           <TagManager
             selectedTags={taskData.tags}
             onTagSelect={handleTagSelect}

@@ -1,0 +1,99 @@
+.inline-task-form {
+  background: var(--card-bg, #fff);
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.inline-task-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--input-border, #ddd);
+  border-radius: 6px;
+  font-size: 14px;
+  background: var(--input-bg, #fff);
+  color: var(--text-color, #333);
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.inline-task-input:focus {
+  outline: none;
+  border-color: var(--primary-color, #007bff);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+.inline-form-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.inline-form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.save-task-btn {
+  background: var(--primary-color, #007bff);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.save-task-btn:hover {
+  background: var(--primary-hover, #0056b3);
+}
+
+.cancel-task-btn {
+  background: var(--secondary-bg, #f8f9fa);
+  color: var(--secondary-text, #6c757d);
+  border: 1px solid var(--border-color, #ddd);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancel-task-btn:hover {
+  background: var(--secondary-hover, #e9ecef);
+}
+
+/* Dark mode support */
+:root[data-theme="dark"] .inline-task-form {
+  --card-bg: #2c3e50;
+  --border-color: #444;
+  --input-border: #555;
+  --input-bg: #34495e;
+  --text-color: #ecf0f1;
+  --primary-color: #4dabf7;
+  --primary-hover: #339af0;
+  --secondary-bg: #34495e;
+  --secondary-text: #bdc3c7;
+  --secondary-hover: #4a5568;
+}
+
+/* Light mode support */
+:root[data-theme="light"] .inline-task-form {
+  --card-bg: #fff;
+  --border-color: #ddd;
+  --input-border: #ddd;
+  --input-bg: #fff;
+  --text-color: #333;
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --secondary-bg: #f8f9fa;
+  --secondary-text: #6c757d;
+  --secondary-hover: #e9ecef;
+}

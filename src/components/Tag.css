@@ -20,7 +20,30 @@
     transform: translateY(0);
 }
 
+.tag-selected {
+    /* Dynamic styles will be applied via inline styles from tagManager */
+    font-weight: 600;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.tag-selected:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 /* Dark theme specific adjustments for better contrast */
 body.dark-theme .tag {
     border-color: var(--border-primary);
+}
+
+/* For tags displayed in task cards */
+.task-tag {
+    font-size: 12px;
+    padding: 2px 8px;
+    margin: 2px 4px 2px 0;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: default;
+    display: inline-block;
 }

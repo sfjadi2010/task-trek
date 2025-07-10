@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import TaskForm from "./components/TaskForm";
 import TaskColumn from "./components/TaskColumn";
 import ThemeToggle from "./components/ThemeToggle";
 import Todo from "./assets/direct-hit.png";
@@ -23,6 +22,10 @@ const App = () => {
     );
   };
 
+  const handleAddTask = (taskData) => {
+    setTasks((prevTasks) => [...prevTasks, taskData]);
+  };
+
   const onDrop = (status, position) => {
     if (activeCard === null || activeCard === undefined) return;
 
@@ -43,7 +46,6 @@ const App = () => {
       <ThemeToggle />
       <div className="app_title">Task Trek</div>
       <div className="app">
-        <TaskForm setTasks={setTasks} />
         <main className="app_main">
           <TaskColumn
             handleDelete={handleDelete}
@@ -53,6 +55,7 @@ const App = () => {
             status="todo"
             setActiveCard={setActiveCard}
             onDrop={onDrop}
+            onAddTask={handleAddTask}
           />
           <TaskColumn
             handleDelete={handleDelete}

@@ -1,0 +1,43 @@
+.tag-manager {
+  margin-bottom: 16px;
+}
+
+.tag-manager-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color, #333);
+  margin-bottom: 8px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.no-tags-message {
+  font-size: 14px;
+  color: var(--text-muted, #6c757d);
+  font-style: italic;
+  padding: 16px;
+  text-align: center;
+  background: var(--bg-light, #f8f9fa);
+  border-radius: 6px;
+  border: 1px dashed var(--border-color, #ddd);
+}
+
+/* Dark mode support */
+:root[data-theme="dark"] .tag-manager {
+  --text-color: #f8f9fa;
+  --text-muted: #adb5bd;
+  --bg-light: #495057;
+  --border-color: #6c757d;
+}
+
+/* Light mode support */
+:root[data-theme="light"] .tag-manager {
+  --text-color: #333;
+  --text-muted: #6c757d;
+  --bg-light: #f8f9fa;
+  --border-color: #ddd;
+}

@@ -1,20 +1,23 @@
 import React from "react";
 import "./Tag.css";
+import { getTagColor } from "../utils/tagManager";
 
 const Tag = ({ tagName, selectTag, selected }) => {
-  const tagStyle = {
-    HTML: { backgroundColor: "#fda821" },
-    CSS: { backgroundColor: "#15d4c8" },
-    JavaScript: { backgroundColor: "#ffd12c" },
-    ReactJS: { backgroundColor: "#4Cdafc" },
-    default: { backgroundColor: "#f9f9f9" },
-  };
+  const tagColor = getTagColor(tagName);
+  
+  const tagStyle = selected && tagColor 
+    ? {
+        backgroundColor: tagColor.backgroundColor,
+        color: tagColor.textColor,
+        border: `1px solid ${tagColor.backgroundColor}`,
+      }
+    : {};
 
   return (
     <button
       type="button"
-      className="tag"
-      style={selected ? tagStyle[tagName] : tagStyle.default}
+      className={`tag ${selected ? 'tag-selected' : ''}`}
+      style={tagStyle}
       onClick={() => selectTag(tagName)}
     >
       {tagName}

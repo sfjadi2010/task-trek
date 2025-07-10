@@ -1,0 +1,118 @@
+.tag-input-container {
+  margin-bottom: 16px;
+}
+
+.tag-input-field {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid var(--input-border, #ddd);
+  border-radius: 6px;
+  background: var(--input-bg, #fff);
+  min-height: 42px;
+  cursor: text;
+  transition: border-color 0.2s ease;
+}
+
+.tag-input-field:focus-within {
+  border-color: var(--primary-color, #007bff);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: var(--tag-bg, #e9ecef);
+  color: var(--tag-text, #495057);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--tag-border, transparent);
+  transition: all 0.2s ease;
+}
+
+.tag-chip:hover {
+  background: var(--tag-hover-bg, #dee2e6);
+}
+
+.tag-remove {
+  background: none;
+  border: none;
+  color: var(--tag-remove-color, #6c757d);
+  cursor: pointer;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.tag-remove:hover {
+  background: var(--tag-remove-hover-bg, rgba(220, 53, 69, 0.1));
+  color: var(--tag-remove-hover-color, #dc3545);
+}
+
+.tag-text-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  min-width: 120px;
+  font-size: 14px;
+  color: var(--text-color, #333);
+  padding: 4px 0;
+}
+
+.tag-text-input::placeholder {
+  color: var(--placeholder-color, #6c757d);
+}
+
+.tag-input-hint {
+  font-size: 12px;
+  color: var(--hint-color, #6c757d);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Dark mode support */
+:root[data-theme="dark"] .tag-input-container {
+  --input-border: #555;
+  --input-bg: #34495e;
+  --primary-color: #4dabf7;
+  --tag-bg: #495057;
+  --tag-text: #f8f9fa;
+  --tag-border: #6c757d;
+  --tag-hover-bg: #5a6268;
+  --tag-remove-color: #adb5bd;
+  --tag-remove-hover-bg: rgba(220, 53, 69, 0.2);
+  --tag-remove-hover-color: #f5c6cb;
+  --text-color: #f8f9fa;
+  --placeholder-color: #adb5bd;
+  --hint-color: #adb5bd;
+}
+
+/* Light mode support */
+:root[data-theme="light"] .tag-input-container {
+  --input-border: #ddd;
+  --input-bg: #fff;
+  --primary-color: #007bff;
+  --tag-bg: #e9ecef;
+  --tag-text: #495057;
+  --tag-border: transparent;
+  --tag-hover-bg: #dee2e6;
+  --tag-remove-color: #6c757d;
+  --tag-remove-hover-bg: rgba(220, 53, 69, 0.1);
+  --tag-remove-hover-color: #dc3545;
+  --text-color: #333;
+  --placeholder-color: #6c757d;
+  --hint-color: #6c757d;
+}
